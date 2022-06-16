@@ -7,4 +7,4 @@
 - Dashboard - "/dashboard"
 - Login - "/login"
 
-I have added a branch "afterhours" which included post-time style improvements
+I have added a branch "afterhours" which includes post-time style improvements
