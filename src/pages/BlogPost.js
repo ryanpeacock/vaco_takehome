@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import AppContext from "../context/app/appContext";
 import * as FaIcons from "react-icons/fa";
+import Layout from "../components/layout/Layout";
 
 const SinglePost = ({ data }) => {
   const { id, title, timestamp, text } = data;
@@ -20,21 +21,28 @@ const BlogPost = ({
   history,
 }) => {
   const appContext = useContext(AppContext);
-  const { singleBlogPost, getSinglePost } = appContext;
+  const { singleBlogPost, getSinglePost, clearSinglePost } = appContext;
 
   console.log(singleBlogPost);
 
   useEffect(() => {
     getSinglePost(id);
+    return () => {
+      clearSinglePost();
+    };
   }, []);
 
-  return Object.keys(singleBlogPost).length === 0 ? (
-    <h2>Loading...</h2>
-  ) : (
-    <div className="single-post-page">
-      <FaIcons.FaArrowLeft onClick={() => history.push("/")} />
-      <SinglePost data={singleBlogPost} />
-    </div>
+  return (
+    <Layout>
+      {Object.keys(singleBlogPost).length === 0 ? (
+        <h2>Loading...</h2>
+      ) : (
+        <div className="single-post-page">
+          <FaIcons.FaArrowLeft onClick={() => history.push("/")} />
+          <SinglePost data={singleBlogPost} />
+        </div>
+      )}
+    </Layout>
   );
 };
 

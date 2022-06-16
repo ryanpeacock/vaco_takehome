@@ -1,11 +1,14 @@
 import React from "react";
+import moment from "moment";
 
 const BlogPostTile = ({ data }) => {
   const { text, timestamp, title, id } = data;
   return (
     <div className="blog-post-tile">
-      <h2>{title}</h2>
-      <span>{timestamp}</span>
+      <div className="top">
+        <h2>{title}</h2>
+        <span>{moment(timestamp).format("DD MMM YYYY")}</span>
+      </div>
       <div className="content" dangerouslySetInnerHTML={{ __html: text }} />
     </div>
   );

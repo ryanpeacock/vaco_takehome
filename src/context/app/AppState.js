@@ -11,6 +11,7 @@ import {
   DELETE_ALL_POSTS,
   DELETE_POST,
   SET_SHOW_MODAL,
+  CLEAR_SINGLE_POST,
 } from "./types";
 
 const AppState = (props) => {
@@ -38,6 +39,10 @@ const AppState = (props) => {
     const res = await axios.get(apiURL(`${id}`));
     console.log(res.data);
     dispatch({ type: GET_POST, payload: res.data.response });
+  };
+
+  const clearSinglePost = () => {
+    dispatch({ type: CLEAR_SINGLE_POST });
   };
 
   const createBlogPost = async (data) => {
@@ -74,6 +79,7 @@ const AppState = (props) => {
         setShowModal,
         getAllPosts,
         getSinglePost,
+        clearSinglePost,
         createBlogPost,
         editBlogPost,
         deleteBlogPost,

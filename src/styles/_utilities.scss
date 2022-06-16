@@ -84,8 +84,9 @@
 }
 
 .modal-content {
+  border: 3px solid $light;
   margin: 2rem auto;
-  background: white;
+  background: $dark;
   border-radius: 10px;
   .top-bar {
     display: flex;
@@ -97,6 +98,7 @@
     }
     .close-icon {
       align-self: flex-end;
+      color: $light;
       font-size: 1.75rem;
       transition: transform 0.5s ease;
       &:hover {

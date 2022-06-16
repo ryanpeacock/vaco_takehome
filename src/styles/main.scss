@@ -13,6 +13,8 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   color: #333;
+  background: $dark;
+  color: $light;
 }
 
 a {
@@ -27,15 +29,140 @@ a {
 }
 
 .blog-post-tile {
-  border: 2px solid $dark;
-  width: 250px;
+  border: 2px solid $light;
+  // width: 250px;
   border-radius: 5px;
-  padding: 0.5rem;
+  padding: 1rem 2rem;
   margin: 2rem;
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+}
+.main-layout {
+  width: 100%;
+  height: 100%;
+}
+
+.post-tile-container {
+  position: relative;
+  .actions {
+    top: 20px;
+    right: 15px;
+    position: absolute;
+    display: flex;
+    .edit,
+    .delete {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background: $green;
+      margin: 0 0.25rem;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 .posts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 500px);
+  justify-content: center;
+}
+
+.home-header {
+  background: $purple;
+  color: $light;
+  padding: 0.5rem 4rem;
   display: flex;
-  // flex-direction: column
-  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  .menu-links {
+    ul {
+      list-style: none;
+      display: flex;
+      li {
+        margin: 0 0.5rem;
+        transition: color 0.5s ease-in-out;
+
+        &:hover {
+          color: $yellow;
+        }
+      }
+    }
+  }
+}
+
+#site-logo {
+  justify-content: center;
+  align-items: center;
+  .logo-icon {
+    font-size: 2rem;
+    margin-right: 5px;
+  }
+  span {
+    font-size: 1.5rem;
+    font-weight: 900;
+  }
+}
+
+.home-container {
+  border-top: 2px solid $orange;
+  display: flex;
+  .left-column {
+    flex: 20%;
+    padding: 3rem 1.5rem 3rem 3rem;
+    font-size: 1rem;
+    line-height: 2.5;
+  }
+  .right-column {
+    border-left: 2px solid $orange;
+    flex: 80%;
+  }
+}
+
+.login-page {
+  width: 100vw;
+  height: 100vh;
+  background: #eee;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .login-block {
+    width: 550px;
+    background: #fff;
+    border-radius: 10px;
+    .top {
+      display: flex;
+      justify-content: center;
+      padding: 1rem 0.5rem;
+      border-bottom: 1px dotted #ccc;
+    }
+    .body {
+      padding: 1rem 2rem 2rem 2rem;
+      .form-item {
+        margin: 0.5rem;
+      }
+      .btn {
+        margin: 0.5rem 0;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.dashboard-page {
+  .btns-container {
+    margin: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+  }
 }

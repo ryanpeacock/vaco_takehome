@@ -6,6 +6,7 @@ import {
   DELETE_ALL_POSTS,
   DELETE_POST,
   SET_SHOW_MODAL,
+  CLEAR_SINGLE_POST,
 } from "./types";
 
 const AppReducer = (state, action) => {
@@ -25,6 +26,11 @@ const AppReducer = (state, action) => {
       return {
         ...state,
         blogPosts: [payload, ...state.blogPosts],
+      };
+    case CLEAR_SINGLE_POST:
+      return {
+        ...state,
+        singleBlogPost: {},
       };
     case EDIT_POST:
       return {

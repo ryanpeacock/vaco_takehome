@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import * as GrIcons from "react-icons/gr";
+import * as FaIcons from "react-icons/fa";
 
 import AppContext from "../context/app/appContext";
 
@@ -28,7 +28,7 @@ const PostModal = ({ type, data }) => {
     <div id="postModal" className="modal">
       <div className="post-modal-content modal-content">
         <div className="top-bar">
-          <GrIcons.GrFormClose
+          <FaIcons.FaTimes
             className="close-icon"
             onClick={() => setShowModal("post", false)}
           />
@@ -68,7 +68,7 @@ const PostModal = ({ type, data }) => {
         <div className="bottom-bar">
           <div className="btns">
             <div
-              className="btn btn-dark"
+              className="btn btn-green"
               onClick={() => setShowModal("post", false)}
             >
               Close
