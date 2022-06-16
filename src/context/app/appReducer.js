@@ -42,7 +42,7 @@ const AppReducer = (state, action) => {
     case DELETE_POST:
       return {
         ...state,
-        blogPosts: state.blogPosts.filter((post) => post.id !== payload.id),
+        blogPosts: state.blogPosts.filter((post) => post.id !== payload),
       };
     case DELETE_ALL_POSTS:
       return {
