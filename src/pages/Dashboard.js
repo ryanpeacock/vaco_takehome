@@ -74,6 +74,7 @@ const Dashboard = () => {
                     data={post}
                     setPostType={setPostType}
                     setPostData={setPostData}
+                    key={post.id}
                   />
                 );
               })

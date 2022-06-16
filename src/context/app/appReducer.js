@@ -33,10 +33,11 @@ const AppReducer = (state, action) => {
         singleBlogPost: {},
       };
     case EDIT_POST:
+      console.log(payload);
       return {
         ...state,
         blogPosts: state.blogPosts.map((post) =>
-          post.id === payload.id ? payload : post
+          post.id === payload.id ? payload.data : post
         ),
       };
     case DELETE_POST:

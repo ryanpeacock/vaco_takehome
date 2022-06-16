@@ -55,7 +55,11 @@ const AppState = (props) => {
   };
 
   const editBlogPost = async (id, data) => {
-    await axios.put(apiURL(id), data);
+    const content = {
+      title: data.title,
+      text: data.text,
+    };
+    await axios.put(apiURL(id), content);
     dispatch({ type: EDIT_POST, payload: { id, data } });
   };
   const deleteBlogPost = async (id) => {
