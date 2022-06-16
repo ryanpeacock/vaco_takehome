@@ -26,9 +26,13 @@ const Home = () => {
               <ul>
                 {blogPosts.map((post, index) => {
                   return (
-                    <li>{`${moment(post.timestamp).format(
-                      "DD MMM YYYY"
-                    )} - Post ${index + 1}`}</li>
+                    <li>
+                      <Link to={`/post/${post.id}`}>
+                        {`${moment(post.timestamp).format(
+                          "DD MMM YYYY"
+                        )} - Post ${index + 1}`}
+                      </Link>
+                    </li>
                   );
                 })}
               </ul>
