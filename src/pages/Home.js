@@ -1,6 +1,9 @@
 import React, { useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import AppContext from "../context/app/appContext";
+
+import BlogPostTile from "../components/BlogPostTile";
 
 const Home = () => {
   const appContext = useContext(AppContext);
@@ -13,12 +16,18 @@ const Home = () => {
   }, []);
   return (
     <div>
-      <h1>Hello World</h1>
-      {blogPosts.length > 0
-        ? blogPosts.map((post) => {
-            return <p>{post.title}</p>;
-          })
-        : null}
+      <h1>My Blog</h1>
+      <div className="posts-container">
+        {blogPosts.length > 0
+          ? blogPosts.map((post) => {
+              return (
+                <Link to={`/post/${post.id}`} key={post.id}>
+                  <BlogPostTile data={post} />
+                </Link>
+              );
+            })
+          : null}
+      </div>
     </div>
   );
 };
