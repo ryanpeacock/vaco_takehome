@@ -6,6 +6,8 @@ const Login = ({ history }) => {
     username: "",
     password: "",
   });
+  const [error, setError] = useState("");
+  const [showError, setShowError] = useState(false);
 
   const { username, password } = loginData;
 
@@ -13,9 +15,13 @@ const Login = ({ history }) => {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
   };
 
-  const onSubmit = () => {
+  const onSubmit = (e) => {
+    e.preventDefault();
     if (username !== "" && password !== "") {
       history.push("/dashboard");
+    } else {
+      setError("Please Fill in all fields");
+      setShowError(true);
     }
   };
   return (
@@ -50,6 +56,9 @@ const Login = ({ history }) => {
             </div>
             <input type="submit" value="Login" className="btn btn-dark" />
           </form>
+          {showError && (
+            <p style={{ color: "#f92672", textAlign: "center" }}>{error}</p>
+          )}
         </div>
       </div>
     </div>
